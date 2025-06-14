@@ -1,2 +1,2 @@
 # Attendance-Marker
-A month Attendance marker for Teachers 
+A monthly attendance marker for Teachers 
