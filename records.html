@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Records</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📊 Attendance Records (Grouped by Month)</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Month</th>
+                <th>Total Hours</th>
+                <th>Total Payment (₹)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in records %}
+            <tr>
+                <td>{{ r[0] }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ "%.2f"|format(r[3]) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="/clear" method="post" onsubmit="return confirm('Delete all records?');">
+        <button type="submit" class="danger">Clear All</button>
+    </form>
+
+    <form action="/clear_month" method="post">
+        <input type="month" name="month" required>
+        <button type="submit" class="warning">Clear Selected Month</button>
+    </form>
+
+    <a href="/"><button class="secondary">← Back to Add</button></a>
+</body>
+</html>

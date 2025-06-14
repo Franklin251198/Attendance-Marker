@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>📝 Add Attendance Entry</h1>
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="hourly_rate" placeholder="Hourly Rate" required>
+        <input type="number" name="hours" placeholder="Hours Worked" required>
+        <button type="submit">Add Record</button>
+    </form>
+    <br>
+    <a href="/records"><button class="secondary">View Records</button></a>
+</body>
+</html>
